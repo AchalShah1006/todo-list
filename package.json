@@ -1,6 +1,6 @@
 {
   "name": "redux-todo",
-  "homepage": "http://AchalShah1006.github.io/todo-list",
+  "homepage": "http:AchalShah1006.github.io/todo-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
