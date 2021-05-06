@@ -1,32 +1,28 @@
 import React from 'react';
 import Input from './components/Input';
-import './App.css';
 import ListTodo from './components/ListTodo';
+import Navbar from './components/Navbar';
 
 import { useSelector } from 'react-redux';
 import { selectTodoList } from './features/todoSlice' 
 
+import './App.css';
 
 function App() {
   const todoList = useSelector(selectTodoList)
   return (
     <div className="App">
-      <div className="app_container">
-        {/* Todo List */}
-        <div>
-          {
-            todoList.map((item, index) => (
+      <Navbar />
+      <Input />
+      <div className="app-container">
+          {todoList.map((item, index) => (
               <ListTodo
                 key={index}
-                name={item.input}
-                done={item.done}
+                input={item.input}
+                checked={item.done}
                 id={item.id}
               />
-            ))
-          }
-        </div>
-        {/* Input */}
-        <Input />
+            ))}
       </div>
     </div>
   );

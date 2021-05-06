@@ -11,15 +11,28 @@ const todoSlice = createSlice({
         saveTodo : (state, action) => {
             state.todoList.push(action.payload)
         },
+        removeTodo: (state, action) => {
+            return {
+                todoList : [
+                    ...state.todoList.filter(item => item.id !== action.payload)
+                ]
+            }
+        },
+        editTodo :  (state, action) => {
+            const itemIndex = state.todoList.findIndex(item => item.id === action.payload.id)
+            state.todoList.map((item, index) => {
+                if(action.payload.id === item.id){
+                    if(index === itemIndex){
+                        item.input = action.payload.input
+                    }
+                }
+                return item
+            })
+        },
         setCheck: (state, action) => {
             state.todoList.map(item => {
                 if(action.payload === item.id){
-                    if(item.done === true){
-                        item.done = false
-                    }
-                    else{
-                        item.done = true
-                    }
+                    item.done = !item.done
                 }
                 return item
             })
@@ -29,6 +42,8 @@ const todoSlice = createSlice({
 
 export const {
     saveTodo,
+    removeTodo,
+    editTodo,
     setCheck
 } = todoSlice.actions
 
