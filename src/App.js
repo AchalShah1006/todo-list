@@ -1,48 +1,21 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import Input from "./components/Input";
-import ListTodo from "./components/ListTodo";
+import { Box } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { useSelector } from "react-redux";
+import darkTheme from "./utils/theme/darkTheme";
+import lightTheme from "./utils/theme/lightTheme";
+import { DARK } from "./redux/Reducers/themeReducer/constants";
 import Navbar from "./components/Navbar";
 
-import { useSelector } from "react-redux";
-import { selectTodoList } from "./features/todoSlice";
-
-const useStyles = makeStyles({
-  root: {
-    paddingBottom: "1rem",
-  },
-  container: {
-    margin: "0.7rem",
-  },
-  list: {
-    width: "100%",
-    maxWidth: 360,
-    margin: "1rem auto",
-  },
-});
-
 function App() {
-  const classes = useStyles();
-  const todoList = useSelector(selectTodoList);
+  const theme = useSelector((state) => state.theme);
 
   return (
-    <div className={classes.root}>
-      <Navbar />
-      <Input />
-      <div className={classes.container}>
-        <List className={classes.list}>
-          {todoList.map((item, index) => (
-            <ListTodo
-              key={index}
-              input={item.input}
-              checked={item.done}
-              id={item.id}
-            />
-          ))}
-        </List>
-      </div>
-    </div>
+    <ThemeProvider theme={theme === DARK ? darkTheme : lightTheme}>
+      <Box style={{ height: "100vh" }}>
+        <Navbar />
+      </Box>
+    </ThemeProvider>
   );
 }
 
