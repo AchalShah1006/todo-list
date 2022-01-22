@@ -1,12 +1,14 @@
 {
   "name": "redux-todo",
   "homepage": "http:AchalShah1006.github.io/todo-list",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "@reduxjs/toolkit": "^1.5.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.3.0",
+    "@mui/material": "^5.3.0",
+    "@mui/styles": "^5.3.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -14,7 +16,8 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-scripts": "4.0.3",
-    "redux-persist": "^6.0.0"
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "predeploy": "npm run build",
