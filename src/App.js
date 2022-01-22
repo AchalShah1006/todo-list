@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
-import { ThemeProvider } from "@mui/styles";
+import { Box } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import darkTheme from "./utils/theme/darkTheme";
 import lightTheme from "./utils/theme/lightTheme";
